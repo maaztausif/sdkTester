@@ -13,5 +13,9 @@ public final class getDetails {
     public func getGreetingName(name: String) -> String {
         return MessageBuilder.buildGreeting(for: name)
     }
+    public func getTheAdditon(num1: Int, num2: Int) -> Int {
+        return MessageBuilder.adder(for: num1, for: num2)
+    }
+    
 }
 

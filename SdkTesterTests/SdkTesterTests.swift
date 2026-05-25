@@ -21,4 +21,13 @@ final class MySDKTests: XCTestCase {
         let result = getDetails.shared.getGreetingName(name: "")
         XCTAssertEqual(result, "Hello, stranger!")
     }
+    
+    func test_withValidNo_ReturnValidAddition(){
+        let result = getDetails.shared.getTheAdditon(num1: 1, num2: 2)
+        XCTAssertEqual(result, 3)
+    }
+    func test_withInvalidNo_ReturnError(){
+        let result = getDetails.shared.getTheAdditon(num1: 1, num2: 2)
+        XCTAssertNotEqual(result, 5)
+    }
 }
