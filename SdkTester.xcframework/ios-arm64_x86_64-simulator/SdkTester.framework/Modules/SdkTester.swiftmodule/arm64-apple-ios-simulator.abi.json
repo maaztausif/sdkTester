@@ -1,0 +1,132 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "SdkTester",
+    "printedName": "SdkTester",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SdkTester",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "getDetails",
+        "printedName": "getDetails",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "shared",
+            "printedName": "shared",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "getDetails",
+                "printedName": "SdkTester.getDetails",
+                "usr": "s:9SdkTester10getDetailsC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9SdkTester10getDetailsC6sharedACvpZ",
+            "mangledName": "$s9SdkTester10getDetailsC6sharedACvpZ",
+            "moduleName": "SdkTester",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "getDetails",
+                    "printedName": "SdkTester.getDetails",
+                    "usr": "s:9SdkTester10getDetailsC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9SdkTester10getDetailsC6sharedACvgZ",
+                "mangledName": "$s9SdkTester10getDetailsC6sharedACvgZ",
+                "moduleName": "SdkTester",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "getGreetingName",
+            "printedName": "getGreetingName(name:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9SdkTester10getDetailsC0C12GreetingName4nameS2S_tF",
+            "mangledName": "$s9SdkTester10getDetailsC0C12GreetingName4nameS2S_tF",
+            "moduleName": "SdkTester",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:9SdkTester10getDetailsC",
+        "mangledName": "$s9SdkTester10getDetailsC",
+        "moduleName": "SdkTester",
+        "declAttributes": [
+          "Final",
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": []
+}

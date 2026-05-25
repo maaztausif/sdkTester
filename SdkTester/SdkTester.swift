@@ -1,0 +1,17 @@
+//
+//  SdkTester.swift
+//  SdkTester
+//
+//  Created by Maaz Bin Tausif on 25.05.26.
+//
+
+import Foundation
+
+public final class getDetails {
+    public static let shared = getDetails()
+    private init() {}
+    public func getGreetingName(name: String) -> String {
+        return MessageBuilder.buildGreeting(for: name)
+    }
+}
+
