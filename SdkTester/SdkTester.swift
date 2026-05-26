@@ -16,6 +16,9 @@ public final class getDetails {
     public func getTheAdditon(num1: Int, num2: Int) -> Int {
         return MessageBuilder.adder(for: num1, for: num2)
     }
+    public func getTheSubstraction(num1: Int, num2: Int) -> Int {
+        return MessageBuilder.subtracter(for: num1, for: num2)
+    }
     
 }
 

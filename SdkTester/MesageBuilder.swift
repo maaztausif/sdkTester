@@ -18,4 +18,9 @@ final class MessageBuilder {
         guard b != 0 else { return 0 }
         return a+b
     }
+    static func subtracter(for a:Int, for b:Int)-> Int {
+        guard a != 0 else { return 0 }
+        guard b != 0 else { return 0 }
+        return a-b
+    }
 }

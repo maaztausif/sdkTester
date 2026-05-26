@@ -30,4 +30,13 @@ final class MySDKTests: XCTestCase {
         let result = getDetails.shared.getTheAdditon(num1: 1, num2: 2)
         XCTAssertNotEqual(result, 5)
     }
+    
+    func test_withValidNo_ReturnValidSubtraction(){
+        let result = getDetails.shared.getTheSubstraction(num1: 1, num2: 2)
+        XCTAssertEqual(result, -1)
+    }
+    func test_withInvalidNoSubstraction_ReturnError(){
+        let result = getDetails.shared.getTheSubstraction(num1: 1, num2: 2)
+        XCTAssertNotEqual(result, 5)
+    }
 }
