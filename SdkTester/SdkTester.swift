@@ -20,5 +20,6 @@ public final class getDetails {
         return MessageBuilder.subtracter(for: num1, for: num2)
     }
     
+    
 }
 
