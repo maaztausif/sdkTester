@@ -8,6 +8,7 @@ jobs:
   build-and-release:
     name: Build, Test & Release
     runs-on: macos-15
+    if: "!contains(github.event.head_commit.message, 'Update Package.swift for release')"
     permissions:
       contents: write
 
@@ -76,6 +77,13 @@ jobs:
           git add Package.swift
           git commit -m "Update Package.swift for release ${{ steps.version.outputs.VERSION }}"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create tag on updated commit
+        run: |
+          git tag ${{ steps.version.outputs.VERSION }}
+          git push origin ${{ steps.version.outputs.VERSION }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
