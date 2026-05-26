@@ -20,6 +20,8 @@ public final class getDetails {
         return MessageBuilder.subtracter(for: num1, for: num2)
     }
     
-    
+    public func getTheSubstraction1(num1: Int, num2: Int) -> Int {
+        return MessageBuilder.subtracter(for: num1, for: num2)
+    }
 }
 
