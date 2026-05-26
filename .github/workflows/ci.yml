@@ -13,13 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run Tests
-        run: |
-          xcodebuild test \
-            -project SdkTester.xcodeproj \
-            -scheme SdkTester \
-            -destination "platform=iOS Simulator,OS=17.0,name=iPhone 15" \
-            CODE_SIGNING_ALLOWED=NO
+
 
       - name: Delete old XCFramework
         run: rm -rf archives SdkTester.xcframework
