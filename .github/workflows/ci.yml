@@ -16,6 +16,7 @@ jobs:
       - name: Run Tests
         run: |
           xcodebuild test \
+            -project SdkTester.xcodeproj \
             -scheme SdkTester \
             -destination "platform=iOS Simulator,OS=17.0,name=iPhone 15" \
             CODE_SIGNING_ALLOWED=NO
@@ -26,6 +27,7 @@ jobs:
       - name: Build for iPhone
         run: |
           xcodebuild archive \
+            -project SdkTester.xcodeproj \
             -scheme SdkTester \
             -destination "generic/platform=iOS" \
             -archivePath archives/SdkTester-iOS \
@@ -34,6 +36,7 @@ jobs:
       - name: Build for Simulator
         run: |
           xcodebuild archive \
+            -project SdkTester.xcodeproj \
             -scheme SdkTester \
             -destination "generic/platform=iOS Simulator" \
             -archivePath archives/SdkTester-Simulator \
@@ -49,7 +52,7 @@ jobs:
       - name: Zip XCFramework
         run: zip -r SdkTester.xcframework.zip SdkTester.xcframework
 
-      - name: Get version from tag
+      - name: Get version from commit
         id: version
         run: echo "VERSION=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
 
