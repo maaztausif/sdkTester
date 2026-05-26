@@ -16,6 +16,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Get and increment version
+        id: version
+        run: |
+          CURRENT=$(cat VERSION)
+          MAJOR=$(echo $CURRENT | cut -d. -f1)
+          MINOR=$(echo $CURRENT | cut -d. -f2)
+          PATCH=$(echo $CURRENT | cut -d. -f3)
+          NEW_PATCH=$((PATCH + 1))
+          NEW_VERSION="$MAJOR.$MINOR.$NEW_PATCH"
+          echo $NEW_VERSION > VERSION
+          echo "VERSION=$NEW_VERSION" >> $GITHUB_OUTPUT
+
       - name: Delete old XCFramework
         run: rm -rf archives SdkTester.xcframework
 
@@ -53,34 +65,30 @@ jobs:
       - name: Zip XCFramework
         run: zip -r SdkTester.xcframework.zip SdkTester.xcframework
 
-      - name: Get version from commit
-        id: version
-        run: echo "VERSION=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
-
       - name: Compute checksum
         id: checksum
         run: |
           CHECKSUM=$(swift package compute-checksum SdkTester.xcframework.zip)
           echo "CHECKSUM=$CHECKSUM" >> $GITHUB_OUTPUT
 
-      - name: Update Package.swift
+      - name: Update Package.swift and VERSION
         run: |
           VERSION=${{ steps.version.outputs.VERSION }}
           CHECKSUM=${{ steps.checksum.outputs.CHECKSUM }}
           sed -i '' "s|releases/download/.*/SdkTester.xcframework.zip|releases/download/$VERSION/SdkTester.xcframework.zip|" Package.swift
           sed -i '' "s|checksum: \".*\"|checksum: \"$CHECKSUM\"|" Package.swift
 
-      - name: Commit and push updated Package.swift
+      - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add Package.swift
+          git add Package.swift VERSION
           git commit -m "Update Package.swift for release ${{ steps.version.outputs.VERSION }}"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create tag on updated commit
+      - name: Create tag
         run: |
           git tag ${{ steps.version.outputs.VERSION }}
           git push origin ${{ steps.version.outputs.VERSION }}
