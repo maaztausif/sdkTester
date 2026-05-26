@@ -13,8 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-
-
       - name: Delete old XCFramework
         run: rm -rf archives SdkTester.xcframework
 
@@ -25,7 +23,10 @@ jobs:
             -scheme SdkTester \
             -destination "generic/platform=iOS" \
             -archivePath archives/SdkTester-iOS \
-            SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+            SKIP_INSTALL=NO \
+            BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO
 
       - name: Build for Simulator
         run: |
@@ -34,7 +35,10 @@ jobs:
             -scheme SdkTester \
             -destination "generic/platform=iOS Simulator" \
             -archivePath archives/SdkTester-Simulator \
-            SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+            SKIP_INSTALL=NO \
+            BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO
 
       - name: Create XCFramework
         run: |
