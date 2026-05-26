@@ -10,11 +10,11 @@
 		</data>
 		<key>Modules/SdkTester.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		RJhiCic4pEc01zpl9bYGbDxIaIQ=
+		uOCjrF7DX5XD0wgWelKKMOoxZU4=
 		</data>
 		<key>Modules/SdkTester.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		WX5yqxn9QaxY6iiZUcWu8XkEnAg=
+		YwcB09Xb4jXFFHVqwe3BvvxC5JM=
 		</data>
 		<key>Modules/SdkTester.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/SdkTester.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		WX5yqxn9QaxY6iiZUcWu8XkEnAg=
+		YwcB09Xb4jXFFHVqwe3BvvxC5JM=
 		</data>
 		<key>Modules/SdkTester.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		gJhSm6B+f4qCKktAIwmA2W1REEw=
+		iLX4KMghfJmJC7BdoF6jRsBHDZ8=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -35,14 +35,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wxsYJdVOof5mZmJVtRXoRI/EmCrwq06ur2K7/PJzH4Q=
+			Ofg4cnpgVEEkNmSEgwPwcP669Tqaxbu3o+FhF0yKabs=
 			</data>
 		</dict>
 		<key>Modules/SdkTester.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			khWD3uNWodUmwV8R0vD1/ochu1Pmfeuq4K58iG/ejkA=
+			0i/PLl0b/MEFcENQLONsl4tWr1Rz9w43ZAxxWSCAMYs=
 			</data>
 		</dict>
 		<key>Modules/SdkTester.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -56,14 +56,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			khWD3uNWodUmwV8R0vD1/ochu1Pmfeuq4K58iG/ejkA=
+			0i/PLl0b/MEFcENQLONsl4tWr1Rz9w43ZAxxWSCAMYs=
 			</data>
 		</dict>
 		<key>Modules/SdkTester.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mGeLF2RUQUZ1rDsBxHgzvQwn3BezkJwOn7h9Z6t5EUA=
+			TVa2z2kfrdgRAmQNsZekKvhuIYM38v0C7ImQbVuReAM=
 			</data>
 		</dict>
 	</dict>

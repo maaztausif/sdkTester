@@ -15,6 +15,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SdkTester",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "getDetails",
         "printedName": "getDetails",
@@ -91,6 +101,40 @@
             "declKind": "Func",
             "usr": "s:9SdkTester10getDetailsC0C12GreetingName4nameS2S_tF",
             "mangledName": "$s9SdkTester10getDetailsC0C12GreetingName4nameS2S_tF",
+            "moduleName": "SdkTester",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getTheAdditon",
+            "printedName": "getTheAdditon(num1:num2:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9SdkTester10getDetailsC0C10TheAdditon4num14num2S2i_SitF",
+            "mangledName": "$s9SdkTester10getDetailsC0C10TheAdditon4num14num2S2i_SitF",
             "moduleName": "SdkTester",
             "declAttributes": [
               "Final",

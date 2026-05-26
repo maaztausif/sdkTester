@@ -10,5 +10,6 @@ import _SwiftConcurrencyShims
 @_hasMissingDesignatedInitializers final public class getDetails {
   public static let shared: SdkTester.getDetails
   final public func getGreetingName(name: Swift.String) -> Swift.String
+  final public func getTheAdditon(num1: Swift.Int, num2: Swift.Int) -> Swift.Int
   @objc deinit
 }
