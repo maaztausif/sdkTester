@@ -10,8 +10,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "SdkTester",
-            url: "https://github.com/maaztausif/SdkTester/releases/download/1.1.0/SdkTester.xcframework.zip",
-            checksum: "3e5bc8761b5191d0c723849ac4ac097e4574bd9a055b185fb87343573245549a"
+            url: "https://github.com/maaztausif/SdkTester/releases/download/6e115bc/SdkTester.xcframework.zip",
+            checksum: "f9780212a748c7dc238647cce3320078bf0e622d91b2a7d876f2820bae681af9"
         )
     ]
 )
