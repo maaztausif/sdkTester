@@ -1,0 +1,75 @@
+name: SdkTester CI/CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-release:
+    name: Build, Test & Release
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Tests
+        run: |
+          xcodebuild test \
+            -scheme SdkTester \
+            -destination "platform=iOS Simulator,OS=17.0,name=iPhone 15" \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Delete old XCFramework
+        run: rm -rf archives SdkTester.xcframework
+
+      - name: Build for iPhone
+        run: |
+          xcodebuild archive \
+            -scheme SdkTester \
+            -destination "generic/platform=iOS" \
+            -archivePath archives/SdkTester-iOS \
+            SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+
+      - name: Build for Simulator
+        run: |
+          xcodebuild archive \
+            -scheme SdkTester \
+            -destination "generic/platform=iOS Simulator" \
+            -archivePath archives/SdkTester-Simulator \
+            SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+
+      - name: Create XCFramework
+        run: |
+          xcodebuild -create-xcframework \
+            -framework archives/SdkTester-iOS.xcarchive/Products/Library/Frameworks/SdkTester.framework \
+            -framework archives/SdkTester-Simulator.xcarchive/Products/Library/Frameworks/SdkTester.framework \
+            -output SdkTester.xcframework
+
+      - name: Zip XCFramework
+        run: zip -r SdkTester.xcframework.zip SdkTester.xcframework
+
+      - name: Get version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+
+      - name: Compute checksum
+        id: checksum
+        run: |
+          CHECKSUM=$(swift package compute-checksum SdkTester.xcframework.zip)
+          echo "CHECKSUM=$CHECKSUM" >> $GITHUB_OUTPUT
+
+      - name: Update Package.swift
+        run: |
+          VERSION=${{ steps.version.outputs.VERSION }}
+          CHECKSUM=${{ steps.checksum.outputs.CHECKSUM }}
+          sed -i '' "s|releases/download/.*/SdkTester.xcframework.zip|releases/download/$VERSION/SdkTester.xcframework.zip|" Package.swift
+          sed -i '' "s|checksum: \".*\"|checksum: \"$CHECKSUM\"|" Package.swift
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.VERSION }}
+          files: SdkTester.xcframework.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
